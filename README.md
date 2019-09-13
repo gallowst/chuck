@@ -1,4 +1,30 @@
-# Chuck Norris
-Chuck Norris Kubernetes Deployment
+# Flask Sample Application
 
-- Deploy Gunicord Docker image to query ICNDB
+[![Build status](https://dev.azure.com/gallowst/personal/_apis/build/status/personal-Docker%20container-CI)](https://dev.azure.com/gallowst/personal/_build/latest?definitionId=5)
+
+This repository provides a sample Python web application implemented using the Flask web framework and hosted using ``gunicorn``. It is intended to be used to demonstrate deployment of Python web applications to Docker.
+
+## Implementation Notes
+
+This sample Python application relies on the support provided by the default S2I builder for deploying a WSGI application using the ``gunicorn`` WSGI server. The requirements which need to be satisfied for this to work are:
+
+* The WSGI application code file needs to be named ``wsgi.py``.
+* The WSGI application entry point within the code file needs to be named ``application``.
+* The ``gunicorn`` package must be listed in the ``requirements.txt`` file for ``pip``.
+
+In addition, the ``.s2i/environment`` file has been created to allow environment variables to be set to override the behaviour of the default S2I builder for Python.
+
+* The environment variable ``APP_CONFIG`` has been set to declare the name of the config file for ``gunicorn``.
+
+## Deployment Steps
+
+From Docker run
+
+~~~bash
+#Build it
+docker build -t flask-demo:latest .
+#Run it
+docker run --rm -p 5000:5000 flask-demo:latest
+~~~
+
+Access the web page via port 5000 
