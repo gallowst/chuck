@@ -1,6 +1,6 @@
 # Flask Sample Application
 
-[![Build status](https://dev.azure.com/gallowst/personal/_apis/build/status/personal-Docker%20container-CI)](https://dev.azure.com/gallowst/personal/_build/latest?definitionId=5)
+[![Build Status](https://dev.azure.com/gallowst/chuck/_apis/build/status/Chuck?branchName=master)](https://dev.azure.com/gallowst/chuck/_build/latest?definitionId=10&branchName=master)
 
 This repository provides a sample Python web application implemented using the Flask web framework and hosted using ``gunicorn``. It is intended to be used to demonstrate deployment of Python web applications to Docker.
 
