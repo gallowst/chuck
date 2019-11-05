@@ -1,4 +1,4 @@
-# Flask Sample Application
+# Chuck Norris - Flask Sample Application
 
 [![Build Status](https://dev.azure.com/gallowst/chuck/_apis/build/status/Chuck?branchName=master)](https://dev.azure.com/gallowst/chuck/_build/latest?definitionId=10&branchName=master)
 
