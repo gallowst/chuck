@@ -24,7 +24,7 @@ From Docker run
 #Build it
 docker build -t flask-demo:latest .
 #Run it
-docker run --rm -p 5000:5000 flask-demo:latest
+docker run --rm -p 80:80 flask-demo:latest
 ~~~
 
-Access the web page via port 5000 
+Access the web page via `http` on port 80 
