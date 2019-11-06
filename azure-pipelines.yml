@@ -35,3 +35,6 @@ stages:
         tags: |
           $(tag)
           latest
+    - task: WhiteSource Bolt@19
+      inputs:
+       cwd: $(Build.ArtifactStagingDirectory)/
