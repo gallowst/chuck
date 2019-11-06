@@ -37,4 +37,4 @@ stages:
           latest
     - task: WhiteSource Bolt@19
       inputs:
-       cwd: $(Build.ArtifactStagingDirectory)/
+       cwd: app
