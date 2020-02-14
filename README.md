@@ -18,13 +18,13 @@ In addition, the ``.s2i/environment`` file has been created to allow environment
 
 ## Deployment Steps
 
-From Docker run
+From Docker for Windows / WSL / Linux Docker Host run the following:
 
 ~~~bash
-#Build it
+# Build it
 docker build -t flask-demo:latest .
-#Run it
-docker run --rm -p 80:80 flask-demo:latest
+# Run it
+docker run --rm -p 8080:80 flask-demo:latest
 ~~~
 
-Access the web page via `http` on port 80 
+Access the web page via `http` on port 8080 - [linky](http://localhost:8080)
