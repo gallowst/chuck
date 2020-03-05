@@ -1,1 +1,1 @@
-Remove-AzResourceGroup -Name "$(rg)" -Force
+Remove-AzResourceGroup -Name $(rg) -Force

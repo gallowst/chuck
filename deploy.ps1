@@ -1,2 +1,2 @@
-New-AzResourceGroup -Name "$(rg)" -Location "$(location)"
+New-AzResourceGroup -Name $(rg) -Location $(location)
 New-AzContainerGroup -ResourceGroupName "$(rg)" -Name aci-demo -Image gallows/chuck:latest -OsType Linux -DnsNameLabel ("aci-demo-{0}" -f $(Get-Date -f yyyyMMdd))
