@@ -8,10 +8,10 @@ Describe  'ACI Demo Check' {
             if ($resp.StatusCode -eq 200) {$bolTestPass = $true}
             else {$bolTestpass = $false}
             start-sleep -Seconds 1
-        }
-        # Report the test status
-        It 'Container should respond on port 80' {
-           $bolTestPass | Should -Be $true
-        }
+            # Perform the test
+            It 'Container should respond on port 80' {
+                $bolTestPass | Should -Be $true
+            }
+        }       
     }
 }
