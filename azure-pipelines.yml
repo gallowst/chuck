@@ -49,7 +49,7 @@ stages:
       displayName: Scan
       inputs:
         script: |
-          docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/mnt --rm aquasec/trivy --format template --template "@contrib/junit.tpl" --output /mnt/report.xml -q ${imageName}
+          docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/mnt --rm aquasec/trivy --format template --template "@contrib/junit.tpl" --output /mnt/report.xml -q gallows/chuck
           cp report.xml $(Build.ArtifactStagingDirectory)/junit-report.xml
 
     - task: Docker@2
