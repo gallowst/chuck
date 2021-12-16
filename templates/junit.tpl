@@ -10,7 +10,7 @@
         {{- end -}}
         {{ range .Vulnerabilities }}
         <testcase classname="{{ .PkgName }}-{{ .InstalledVersion }}" name="[{{ .Vulnerability.Severity }}] {{ .VulnerabilityID }}" time="">
-            <failure message="{{ escapeXML .Title }}" type="description">{{ escapeXML .Description }}</failure>
+            <failure message="{{ .Title }}" type="description">{{ .Description }}</failure>
         </testcase>
     {{- end }}
     </testsuite>
