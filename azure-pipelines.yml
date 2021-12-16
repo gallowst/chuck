@@ -63,7 +63,7 @@ stages:
     - task: PublishTestResults@2
       inputs:
         testResultsFormat: 'JUnit'
-        testResultsFiles: '**/junit-*.xml'
+        testResultsFiles: $(Build.ArtifactStagingDirectory)/junit-report.xml
         mergeTestResults: true
         failTaskOnFailedTests: true
         testRunTitle: 'Trivy'
