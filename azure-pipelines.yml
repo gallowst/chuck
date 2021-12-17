@@ -49,21 +49,20 @@ stages:
       displayName: Scan
       inputs:
         script: |
-          docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/mnt --rm aquasec/trivy --format template --template "@contrib/junit.tpl" --output /mnt/report.xml -q gallows/chuck
-          cp $PWD/report.xml $(Build.ArtifactStagingDirectory)/report.xml
+          docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/mnt --rm aquasec/trivy --format template --template "@contrib/junit.tpl" --output /mnt/junit-report.xml -q gallows/chuck
+          cp $PWD/junit-report.xml $(Build.ArtifactStagingDirectory)/junit-report.xml
 
-    - task: Docker@2
-      displayName: "Push to Dockerhub"
+    - task: PublishBuildArtifacts@1
       inputs:
-        containerRegistry: 'dockerhub'
-        repository: 'gallows/chuck'
-        command: 'push'
-        tags: '$(tag)'
-  
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+
+    #Publicación de los resultados del análisis
     - task: PublishTestResults@2
       inputs:
         testResultsFormat: 'JUnit'
-        testResultsFiles: $(Build.ArtifactStagingDirectory)/report.xml
+        testResultsFiles: '**/junit-*.xml'
         mergeTestResults: true
         failTaskOnFailedTests: true
         testRunTitle: 'Trivy'
