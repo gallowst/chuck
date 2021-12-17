@@ -67,3 +67,6 @@ stages:
         containerRegistry: 'dockerhub'
         repository: '$(imageName)'
         command: 'push'
+        tags: |
+          $(Build.BuildId)
+          latest
