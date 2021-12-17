@@ -62,11 +62,8 @@ stages:
       condition: 'always()'
 
     - task: Docker@2
-      displayName: Push the image
+      displayName: Push the tagged image
       inputs:
         containerRegistry: 'dockerhub'
         repository: '$(imageName)'
         command: 'push'
-        tags: |
-          '$(tag)'
-          latest
