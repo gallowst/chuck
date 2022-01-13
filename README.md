@@ -24,7 +24,7 @@ From Docker for Windows / WSL / Linux Docker Host run the following:
 # Build it
 docker build -t gallows/chuck:latest .
 # Run it
-docker run --rm -p 8080:80 gallows/chuck:latest
+docker run --rm -p 8080:5000 gallows/chuck:latest
 ~~~
 
 Access the web page via `http` on port 8080 - [linky](http://localhost:8080)
