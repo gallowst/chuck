@@ -10,7 +10,7 @@ application = Flask(__name__,)
 def index():
     """Chuck home page."""
     # Retrieve JSON document
-    full = json.loads((requests.get("https://api.chucknorris.io/jokes/random?exclude=explicit")).text)
+    full = json.loads((requests.get("https://api.chucknorris.io/jokes/random?category=dev")).text)
     # Clean up the HTML joke
     unescaped_joke = unescape(full['value'])
     return render_template('chuck.html',joke = unescaped_joke, container=socket.gethostname())
