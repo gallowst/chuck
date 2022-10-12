@@ -10,7 +10,7 @@ schedules:
   always: "true"
   
 trigger:
-- master
+- main
 
 resources:
 - repo: self
