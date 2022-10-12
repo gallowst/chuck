@@ -12,7 +12,7 @@ def index():
     # Retrieve JSON document
     full = json.loads((requests.get("https://api.chucknorris.io/jokes/random?exclude=explicit")).text)
     # Clean up the HTML joke
-    unescaped_joke = unescape(full['value']['joke'])
+    unescaped_joke = unescape(full['value'])
     return render_template('chuck.html',joke = unescaped_joke, container=socket.gethostname())
 
 if __name__ == "__main__":
