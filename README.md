@@ -1,6 +1,6 @@
 # Chuck Norris - Flask Sample Application
 
-[![Build Status](https://dev.azure.com/gallowst/docker/_apis/build/status/Build%20and%20push%20chuck?branchName=master)](https://dev.azure.com/gallowst/docker/_build/latest?definitionId=10&branchName=main)
+[![Build Status](https://dev.azure.com/gallowst/docker/_apis/build/status/Build%20and%20push%20chuck?branchName=main)](https://dev.azure.com/gallowst/docker/_build/latest?definitionId=10&branchName=main)
 
 This repository provides a sample Python web application implemented using the Flask web framework and hosted using ``gunicorn``. It is intended to be used to demonstrate deployment of Python web applications to Docker.
 
