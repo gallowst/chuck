@@ -2,11 +2,11 @@ from html import unescape
 import json
 import socket
 import requests
-from flask import Flask, render_template #, Response
+from flask import Flask, render_template
 
-application = Flask(__name__,)
+chuck = Flask(__name__,)
 
-@application.route("/")
+@chuck.route("/")
 def index():
     """Chuck home page."""
     # Retrieve JSON document
@@ -16,4 +16,4 @@ def index():
     return render_template('chuck.html',joke = unescaped_joke, container=socket.gethostname())
 
 if __name__ == "__main__":
-    application.run()
+    chuck.run()
