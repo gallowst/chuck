@@ -4,7 +4,7 @@ RUN mkdir /app && \
     adduser -D gunicorn && \
     chown gunicorn:gunicorn /app
 
-RUN apk upgrade expat py3-setuptools   
+RUN apk upgrade expat   
 USER gunicorn
 ENV PATH="/app/bin:${PATH}"
 COPY /app/requirements.txt .
