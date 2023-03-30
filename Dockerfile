@@ -17,4 +17,4 @@ RUN python3 -m venv /app && source /app/bin/activate && \
 COPY app/ /app/
 WORKDIR /app/
 EXPOSE 5000
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:chuck"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
