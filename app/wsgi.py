@@ -1,19 +1,20 @@
 from html import unescape
 import json
 import socket
-import requests
-from flask import Flask, render_template #, Response
+from flask import Flask, render_template
+from requests import get
 
-application = Flask(__name__,)
+application = Flask(__name__)
 
 @application.route("/")
 def index():
     """Chuck home page."""
     # Retrieve JSON document
-    full = json.loads((requests.get("https://api.chucknorris.io/jokes/random?category=dev")).text)
+    full = json.loads(get("https://api.chucknorris.io/jokes/random?category=dev").content)
     # Clean up the HTML joke
     unescaped_joke = unescape(full['value'])
-    return render_template('chuck.html',joke = unescaped_joke, container=socket.gethostname())
+    return render_template('chuck.html', joke=unescaped_joke, container=socket.gethostname())
 
 if __name__ == "__main__":
-    application.run()
+    application.run(debug=False)
+
