@@ -1,15 +1,20 @@
 FROM python:alpine
 
-RUN mkdir /app && \
-    adduser -D gunicorn && \
+LABEL version="1.0"
+LABEL description="Dockerized Flask application"
+
+RUN adduser -u 1001 -D gunicorn && \
+    mkdir /app && \
     chown gunicorn:gunicorn /app
 
-RUN apk upgrade expat   
 USER gunicorn
 ENV PATH="/app/bin:${PATH}"
-COPY /app/requirements.txt .
-RUN python3 -m venv /app && source /app/bin/activate && python3 -m pip install --use-pep517 -r requirements.txt
+COPY app/requirements.txt /app/
+RUN python3 -m venv /app && source /app/bin/activate && \
+    pip install --no-cache-dir --use-pep517 -r /app/requirements.txt && \
+    rm -rf /var/cache/apk/*
+
 COPY app/ /app/
-EXPOSE 5000
 WORKDIR /app/
+EXPOSE 5000
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:chuck"]
