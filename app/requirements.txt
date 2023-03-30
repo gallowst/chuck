@@ -1,3 +1,5 @@
+flask
 gunicorn
-Flask
+yieldfrom.urllib.request
 requests
+setuptools>=65.5.1
