@@ -18,8 +18,7 @@ resources:
 variables:
   tag: '$(Build.BuildId)'
   imageName: 'gallows/chuck'
-- name: DOCKER_BUILDKIT
-  value: 1
+  DOCKER_BUILDKIT: 1
 
 stages:
 - stage: Build
