@@ -19,7 +19,7 @@ variables:
   tag: '$(Build.BuildId)'
   imageName: 'gallows/chuck'
   DOCKER_BUILDKIT: 1
-  trivyVersion: '0.63.0'
+  trivyVersion: '0.70.0'
 
 stages:
 - stage: Build
