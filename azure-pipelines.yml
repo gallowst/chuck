@@ -58,7 +58,8 @@ stages:
             echo "##[debug]Extracting archive"
             tar xvzf trivy_$(trivyVersion)_Linux-64bit.tar.gz
             echo "##[section]Running Trivy scan"
-            $(System.DefaultWorkingDirectory)/trivy image --compliance docker-cis-1.6.0 $(imageName) --format template --template "@contrib/junit.tpl" --exit-code 1 > ./trivy-junit.xml
+            $(System.DefaultWorkingDirectory)/trivy image --compliance docker-cis-1.6.0 --format json --output trivy-results.json $(imageName)
+            $(System.DefaultWorkingDirectory)/trivy convert --format template --template "@contrib/junit.tpl" --output trivy-junit.xml trivy-results.json
             echo "##[endgroup]"
 
     - task: PublishTestResults@2
