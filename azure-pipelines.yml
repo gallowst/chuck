@@ -58,7 +58,7 @@ stages:
             echo "##[debug]Extracting archive"
             tar xvzf trivy_$(trivyVersion)_Linux-64bit.tar.gz
             echo "##[section]Running Trivy scan"
-            $(System.DefaultWorkingDirectory)/trivy image --severity HIGH,CRITICAL --format sarif --output trivy-results.sarif $(imageName)
+            $(System.DefaultWorkingDirectory)/trivy image --severity HIGH,CRITICAL --format sarif --output trivy.sarif $(imageName)
             echo "##[endgroup]"
 
     - task: PublishBuildArtifacts@1
